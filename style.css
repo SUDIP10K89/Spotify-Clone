@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "PT Sans", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+.left{
+    width: 25vw;
+    height: 100vh;
+    padding: 5px;
+}
+.right{
+    margin-top: 5px;
+    width: 75vw;
+    height: 95vh;
+    border-radius: 7px;
+    position: relative;
+    overflow: hidden;
+}
+.logo img{
+    width: 21px;
+}
+
+.home{
+    padding: 8px;
+}
+.home ul li{
+    font-size: 21px;
+    display: flex;
+    gap: 9px;
+    margin-top: 8px;
+}
+.home ul li img{
+    list-style: none;
+    width: 21px;
+}
+
+.library{
+    margin-top: 5px;
+    height: 70vh;
+}
+.heading{
+    justify-content: space-between;
+}
+.footer{
+    position: absolute;
+    bottom: 70px;
+    width: 23vw;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.footer a{
+    color: #7e7a7a;
+    text-decoration: none;
+    margin-left: 5px;
+    width: auto;
+}
+
+/*Right*/
+
+
+
+.btn{
+    width: 70px;
+    height: 32px;
+    padding: 2px;
+    margin: 0px;
+    border-radius: 18px;
+}
+
+.header{
+    background-color: #252525;
+   
+}
+.nav{
+    margin-top: 5px;
+}
+.header-btn-1{
+    background-color:#121212 ;
+    color: rgb(151, 149, 149);
+    border: 1px solid #121212;
+}
+
+.header-btn-1:hover{
+    color: white;
+    cursor: pointer;
+    font-size: 0.7rem;
+
+}
+
+.header-btn-2{
+    border: 2px solid rgb(255, 254, 254);
+}
+
+.header-btn-2:hover{
+    font-weight: 200;
+    cursor: pointer;
+    font-size: 0.7rem;
+    color: gray;
+}
+.card-container{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    max-height: 85vh;
+}
+.card{
+    margin-top: 7px;
+    width: 150px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #252525;
+    position: relative;
+}
+
+.card >img{
+    width: 100%;
+    object-fit: contain;
+}
+
+.card>*{
+    padding-top:7px ;
+}
+.play{
+    position: absolute;
+    top: 152px;/* top: 99px; */
+    right: 12px;
+    opacity: 0;
+    transition: all 1s ease-in 0.5ms;
+
+}
+
+/* scrollbar */
+/* Chrome-specific custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px; /* Thinner scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e; /* Darker background for the track */
+  border-radius: 5px;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Lighter gray for the thumb */
+  border-radius: 10px; /* Smooth round edges */
+  border: 2px solid #1e1e1e; /* Matches the track background for better contrast */
+
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa; /* Lighter gray on hover for interactivity */
+}
+
+.playbar{
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(1, 78, 1, 0.685);
+    justify-content: space-around;
+}
+
+.player img{
+    filter: invert(1);
+    width: 28px;
+    cursor: pointer;
+}
+
+.songlist{
+    margin-top: 10px;
+    padding: 15px;
+
+}
+.songlist{
+    height: 40vh;
+    overflow-wrap: anywhere;
+    overflow-y: scroll;
+}
+.songlist ul li{
+    display: flex;
+    list-style-type: decimal;
+    gap: 20px;
+    border: 1px solid rgb(121, 120, 120);
+    border-radius: 4px;
+    padding: 0 20px;
+    justify-content: center;
+    margin-bottom: 10px;
+
+}
+
+.songlist ul li img{
+    width: 30px;
+}
+
+.songlist ul li > div{
+    width: 200px;
+    font-size: 10px;
+}
