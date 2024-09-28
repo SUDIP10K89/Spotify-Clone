@@ -18,7 +18,14 @@ async function getSongs() {
     return songs
 }
 
+let playmusic = (track) => {
+  let audio = new Audio("/songs/"+track)
+  audio.play()
+}
+
+
 async function main(){
+    let currentSong;
     let songs = await getSongs()
     
     let songUl = document.querySelector(".songlist").getElementsByTagName("ul")[0]
@@ -27,18 +34,22 @@ async function main(){
         songUl.innerHTML += `
                                 <li>
                             <img src="music.svg" class="invert" alt="music">
-                            <div>
+                            <div class = "info">
                                 <div>${ song.replaceAll("%20"," ")}</div>
                                 
                             </div>
-                            <img src="play2.svg" class="invert" alt="">
+                            <img src="play2.svg" class="invert pointer" alt="">
                         </li>
                          `
     }
-    // play audio
-    var audio = new Audio(songs[0])
-    audio.play()
-
+    //attach an event listener
+   Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(e=> {
+        e.addEventListener("click",element => {
+            console.log(e.querySelector(".info").firstElementChild.innerHTML)
+            playmusic(e.querySelector(".info").firstElementChild.innerHTML)
+        })
+        
+    })
 
 }
 

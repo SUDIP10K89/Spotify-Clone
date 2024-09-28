@@ -62,3 +62,6 @@
 .fw-1{
     font-weight:200 ;
 }
+.pointer{
+    cursor: pointer;
+}
