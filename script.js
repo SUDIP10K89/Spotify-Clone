@@ -23,8 +23,17 @@ let playmusic = (track) => {
 //   let audio = new Audio("/songs/"+track)
   currentSong.src = "/songs/"+track
   currentSong.play()
+  play.src = "pause.svg"
+  document.querySelector(".songInfo").innerHTML = track
+  document.querySelector(".timer").innerHTML = "00:00 / 00:00"
 }
 
+    function secondsToMinutesSeconds(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainingSeconds = seconds % 60;
+      
+        return `${minutes.toString().padStart(2, '0')}:${Math.floor(remainingSeconds.toString().padStart(2, '0'))}`;
+      }
 
 async function main(){
    
@@ -53,6 +62,24 @@ async function main(){
         
     })
 
+    //Attach event listener to play pause and next
+    play.addEventListener("click",() => {
+      if (currentSong.paused) {
+        currentSong.play()
+        play.src = "pause.svg"
+      } else {
+        currentSong.pause()
+        play.src = "play2.svg"
+      }
+    })
+
+    //timeupdate event
+    currentSong.addEventListener("timeupdate",() => {
+      console.log(currentSong.currentTime,currentSong.duration)
+      document.querySelector(".timer").innerHTML = `${secondsToMinutesSeconds(currentSong.currentTime)} / ${secondsToMinutesSeconds(currentSong.duration)}`
+      document.querySelector(".circle").style.left = `${(currentSong.currentTime/currentSong.duration)*100}%`
+    }
+    )
 }
 
 main()

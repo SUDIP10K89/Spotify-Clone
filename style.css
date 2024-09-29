@@ -222,5 +222,10 @@
     border-radius: 10px;
     position: relative;
     left: 0%;
-    transition:all 0.5s ease-in 0s ;
+    transition:all 0.01s linear 0.01s ;
+}
+.songInfo{
+    width: 219px;
+    height: 28px;
+    overflow: hidden
 }
