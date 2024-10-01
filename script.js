@@ -1,5 +1,6 @@
 console.log("javascript suro bho");
 let currentSong = new Audio();
+let songs;
 
 async function getSongs() {
   let a = await fetch("http://127.0.0.1:5500/songs/");
@@ -7,7 +8,7 @@ async function getSongs() {
   let div = document.createElement("div");
   div.innerHTML = response;
   let as = div.getElementsByTagName("a");
-  let songs = [];
+  songs = [];
 
   for (let index = 0; index < as.length; index++) {
     const element = as[index];
@@ -78,7 +79,7 @@ async function main() {
 
   //timeupdate event
   currentSong.addEventListener("timeupdate", () => {
-    console.log(currentSong.currentTime, currentSong.duration);
+
     document.querySelector(".timer").innerHTML = `${secondsToMinutesSeconds(
       currentSong.currentTime
     )} / ${secondsToMinutesSeconds(currentSong.duration)}`;
@@ -97,6 +98,7 @@ async function main() {
 
 main();
 
+// hamburger menu
 document.querySelector(".ham").addEventListener("click", () => {
   sidebar = document.querySelector(".left");
   sidebar.style.left = 0;
@@ -105,3 +107,19 @@ document.querySelector(".cross").addEventListener("click", () => {
   sidebar = document.querySelector(".left");
   sidebar.style.left = "-100%";
 });
+
+// adding previous and next feature logic
+next.addEventListener("click",() => {
+  let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+  console.log(index)
+  if((index+1) < songs.length){
+    playmusic(songs[index + 1])
+  }
+  
+})
+previous.addEventListener("click",() => {
+  let index = songs.indexOf(currentSong.src.split("/").slice(-1)[0])
+  if((index-1) >= 0){
+    playmusic(songs[index - 1])
+  }
+})
